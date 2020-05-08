@@ -8,21 +8,11 @@ function generateRubbish(options) {
 
   if (!options) return '必須要選一個角色來說幹話'
 
-  let result = `身為一個${options}，`
+  return `身為一個${options}，${task[options][random(task[options])]}，${phrase[random(phrase)]}吧!`
 
-
-  if (options === 'engineer') {
-    result += `${task.engineer[Math.floor(Math.random() * task.engineer.length)]}，`
-  }
-  if (options === 'designer') {
-    result += `${task.designer[Math.floor(Math.random() * task.designer.length)]}，`
-  }
-  if (options === 'entrepreneur') {
-    result += `${task.entrepreneur[Math.floor(Math.random() * task.entrepreneur.length)]}，`
-  }
-  result += `${phrase[Math.floor(Math.random() * phrase.length)]}吧!`
-
-  return result
+}
+function random(array) {
+  return Math.floor(Math.random() * array.length)
 }
 
 module.exports = generateRubbish
